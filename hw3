@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<?php
+
+$servername = "localhost";
+$username = "a010380";
+$password = "414852";
+$dbname = "hw2";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully"."<br>";
+
+
+$sql = "SELECT id, title, body, created_at FROM articles";
+$result = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+          echo "id: " . $row["id"] . " - Title: " . $row["title"]. " " . "<br>";
+    }
+}
+
+$array=array("" , "" , "對話沒有用 川普暗示動武" , "遊行太過癮 楊俊瀚：下回再當英雄" , 
+             "Deaths reported as Hurricane Irma batters northern Caribbean islands" , 
+             "Adam Ondra conquers 'world's hardest climb' in Norway" , 
+             "French President Macron jets to Caribbean island flattened by Irma");  
+
+for($i=2; $i<7; $i++){
+  echo ("<a  href=\"http://jackson-a010380123131448.codeanyapp.com/?id=$i/ \"target=\"_blank\">$array[$i]</a>") . "<br>";
+}
+  
+
+  
+  
+  
+  
+$a=$_GET["id"];
+if($a==2){
+  $sql = "SELECT id, title, body, created_at FROM articles where id=1";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. "<br>" . $row["body"]. "<br>" . $row["created_at"]. " " . "<br>";
+    }
+  }
+}else if($a==3){
+  $sql = "SELECT id, title, body, created_at FROM articles where id=2";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. "<br>" . $row["body"]. "<br>" . $row["created_at"]. " " . "<br>";
+    }
+  }
+} else if($a==4){
+    $sql = "SELECT id, title, body, created_at FROM articles where id=3";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. "<br>" . $row["body"]. "<br>" . $row["created_at"]. " " . "<br>";
+    }
+  }
+} else if($a==5){
+    $sql = "SELECT id, title, body, created_at FROM articles where id=4";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. "<br>" . $row["body"]. "<br>" . $row["created_at"]. " " . "<br>";
+    }
+  }
+} else if($a==6){
+    $sql = "SELECT id, title, body, created_at FROM articles where id=5";
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) >0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Title: " . $row["title"]. "<br>" . $row["body"]. "<br>" . $row["created_at"]. " " . "<br>";
+    }
+  }
+}
